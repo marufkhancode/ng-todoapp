@@ -1,0 +1,24 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo scrolling-navbar ie-nav" [containerInside]="false">
+  <mdb-navbar-brand>
+      <a class="logo navbar-brand" routerLink="/"><strong>TODO LIST APP</strong></a>
+  </mdb-navbar-brand>
+  <links>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item waves-light" routerLinkActive="active" mdbWavesEffect>
+              <a class="nav-link" [routerLink]="['todo']" *ngIf="authservice.isAuthenticated()">TODO List <span class="sr-only">(current)</span></a>
+          </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item waves-light" routerLinkActive="active" mdbWavesEffect>
+          <a class="nav-link" [routerLink]="['signup']" *ngIf="!authservice.isAuthenticated()">SignUp</a>
+      </li>
+      <li class="nav-item waves-light" routerLinkActive="active" mdbWavesEffect>
+        <a class="nav-link" [routerLink]="['signin']" *ngIf="!authservice.isAuthenticated()">Login</a>
+    </li>
+    <li class="nav-item waves-light">
+        <button mdbBtn type="button" size="sm" color="default" class="waves-light" mdbWavesEffect (click)="OnLogout()" *ngIf="authservice.isAuthenticated()">logout</button>
+    </li>
+    
+      </ul>
+  </links>
+</mdb-navbar>

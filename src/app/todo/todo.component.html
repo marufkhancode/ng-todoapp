@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-10 col-sm-10 col-9">
+      <div class="md-form">
+        <i class="fa fa-pencil prefix"></i>
+        <input 
+         mdbInputDirective
+         type="text" 
+         id="task" 
+         class="form-control"
+         name="task"
+         required
+         [(ngModel)]="todoinput"
+         #task>
+        <label for="task">Add Your Todo Task here</label>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-2 col-3">
+      <button mdbBtn size="sm" type="button" color="indigo" class="waves-light" [disabled]="(task.value.length === 0)" (click)="addTask()" mdbWavesEffect>  <mdb-icon icon="plus" size="2x"></mdb-icon></button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+     <app-todo-list ></app-todo-list>
+    </div>
+  </div>
+</div>

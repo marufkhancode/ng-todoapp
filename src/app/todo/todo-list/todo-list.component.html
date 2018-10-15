@@ -1,0 +1,49 @@
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center animated lightSpeedIn"
+  data-wow-delay="0.4s"
+  *ngFor="let list of todos; let i =index" 
+  (click)="show(i)"> {{ list.task }}
+    <button mdbBtn 
+    type="button" 
+    size="sm" 
+    color="danger" 
+    class="waves-light pull-right" 
+    mdbWavesEffect
+    (click)="onDelete(i)">
+      <mdb-icon icon="trash -o" size="2x"></mdb-icon>
+      </button>
+  </li>
+</ul>
+
+<!-- Modal -->
+<div mdbModal #content="mdbModal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Update Task</h4>
+        </div>
+          <div class="modal-body">
+              <form>
+                <div class="md-form">
+                  <i class="fa fa-pencil prefix"></i>
+                  <input 
+                   mdbInputDirective
+                   type="text" 
+                   id="updatetxt" 
+                   class="form-control"
+                   name="updatetxt"
+                   required
+                   [(ngModel)]="updatetxt"
+                   #updatetext
+                   >
+                  <label for="updatetxt">Update Your Todo Task here</label>
+                </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary waves-light" data-dismiss="modal" (click)="content.hide()" mdbWavesEffect>Close</button>
+              <button type="button" class="btn btn-primary waves-light" mdbWavesEffect [disabled]="(updatetext.value.length === 0)" (click)="onUpdate()">Update</button>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="row justify-content-center animated bounceInDown" data-wow-delay="0.6s" style="margin-top:10%;">
+    <div class="col-md-8 col-sm-10 col-xs-12 col-sm-offset-1">
+<section class="form-simple">
+
+  <!--Form with header-->
+  <mdb-card>
+
+    <!--Header-->
+    <div class="header pt-3 grey lighten-2">
+
+      <div class="row d-flex justify-content-start">
+        <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Sign in</h3>
+      </div>
+
+    </div>
+    <!--Header-->
+
+    <mdb-card-body class="mx-4 mt-4">
+
+      <!--Body-->
+      <form [formGroup]="signinForm">
+
+
+        <div class="md-form">
+          <input type="text" 
+          id="simpleFormEmail" 
+          class="form-control" 
+          formControlName="simpleFormEmail" 
+          mdbInputDirective>
+          <label for="simpleFormEmail">Your email</label>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" 
+          id="simpleFormPassword" 
+          class="form-control" 
+          formControlName="simpleFormPassword" 
+          mdbInputDirective>
+          <label for="simpleFormPassword">Your password</label>
+        </div>
+      </form>
+
+      <div class="text-center mb-4">
+          <button mdbBtn type="button" [disabled]="!signinForm.valid" color="indigo" class="waves-light mr-1" block="true" mdbWavesEffect (click)="onSignIn()">Login <mdb-icon icon="send"></mdb-icon></button>
+        <!-- <button type="button" mdbBtn color="danger" block="true" class="z-depth-2">Log in</button> -->
+      </div>
+      <p class="font-small grey-text d-flex justify-content-center">Don't have an account?
+        <a (click)="OnSignup()" class="dark-grey-text font-weight-bold ml-1" > Sign up</a>
+      </p>
+
+    </mdb-card-body>
+
+  </mdb-card>
+  <!--/Form with header-->
+
+</section>
+</div>
+</div>
